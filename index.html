@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spin Wheel</title>
+
+        <!-- Arquivo de CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="assets/Spin.jpg">
+
+        <!-- Arquivo de JS -->
+    <script src="main.js" defer></script>
+
 </head>
 <body>
     <div class="container">
@@ -18,28 +27,18 @@
             <div class="number" style="--i:7;--clr:#191970;"><span>5</span></div>
             <div class="number" style="--i:8;--clr:#808080;"><span>20</span></div> 
         </div>
+            <audio  
+                controls="controls"
+                id="applause"
+                src="assets/audio/applause.mp3"
+                type="audio/mp3">
+            </audio>
+            <audio
+                controls="controls"
+                id="wheelSound"
+                src="assets/audio/wheel.mp3"
+                type="audio/mp3">
+            </audio>
     </div>
-    <script>
-        let wheel = document.querySelector('.wheel');
-        let spinBtn = document.querySelector('.spinBtn');
-        let value = Math.ceil(Math.random() * 3600);
-
-        spinBtn.onclick = function(){
-            wheel.style.transform = "rotate(" + value + "deg)"
-        }
-
-    </script>
-    <script>
-         setTimeout(function(){
-            applause.play()
-        }, 5500)
-
-    </script>
-    <audio
-        controls="controls"
-        id="applause"
-        src="assets/Board Room Applause 01.mp3"
-        type="audion/mp3">
-    </audio>
 </body>
 </html>
