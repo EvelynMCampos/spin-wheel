@@ -1,13 +1,11 @@
 let wheel = document.querySelector('.wheel');
 let spinBtn = document.querySelector('.spinBtn');
-let value = 0
 const degDefault = 22.5
+let value = degDefault
 
 const getValue = () => { 
     sortedValue = Math.ceil(Math.random() * 360) + 1800;
-    value = sortedValue + value;
-    console.log(value - degDefault)
-    console.log((value - degDefault) % 360)
+    value = value - sortedValue;
 }
 
 const renderWheel = (fields) => wheel.innerHTML = 
@@ -25,11 +23,11 @@ const renderWheel = (fields) => wheel.innerHTML =
 
 const fields = 
 [
-    { color: "#008B8B", label: "Dev" },
+    { color: "#008B8B", label: "Perdeu", message: 'Poxa, que pena! Tente novamente...'},
     { color: "#6A5ACD", label: 1, suffix: "$" },
     { color: "#FF1493", label: 50, suffix: "$" },
     { color: "#00FF7F", label: 0, suffix: "$" },
-    { color: "#A020F0", label: "Week" },
+    { color: "#A020F0", label: "Sorte", message: 'Agora vale o dobro!!' }, 
     { color: "#FF0000", label: 10, suffix: "$" },
     { color: "#191970", label: 5, suffix: "$" },
     { color: "#808080", label: 20, suffix: "$" }
@@ -43,7 +41,8 @@ spinBtn.addEventListener("click", e => {
     wheelSound.play()
     setTimeout(() => {
         applauseSound.play()
+        index = parseInt((Math.abs(value - degDefault) % 360) / 45)
+        field = fields[index]
+        alert(`${field.message ? field.message : `Você parou no campo ${field.label}`} `)
     }, 5500)
 })
-
-

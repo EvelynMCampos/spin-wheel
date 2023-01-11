@@ -76,6 +76,7 @@ img
     0 0 0 18px #111
     ;
     transition: transform 4s ease-in-out;
+    transform: rotate(22.5deg);
 }
 
 .container .wheel .number
